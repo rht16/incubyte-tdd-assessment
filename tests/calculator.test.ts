@@ -21,6 +21,11 @@ test("returns the number itself when given one number", () => {
     expect(add("//;\n1;2")).toBe(3);
   });
 
+  test("handles custom delimiters of any length", () => {
+    expect(add("//[***]\n1***2***3")).toBe(6);
+    expect(add("//[abc]\n4abc5abc6")).toBe(15);
+});
+
   // edge test cases
   test("returns 0 when input contains only delimiters", () => {
     expect(add(",")).toBe(0);
@@ -31,10 +36,6 @@ test("returns the number itself when given one number", () => {
   test("throws an error for negative numbers", () => {
     expect(() => add("-1,2,-3")).toThrow("negative numbers not allowed -1,-3");
     expect(() => add("//;\n-4;5;-6")).toThrow("negative numbers not allowed -4,-6");
-  });
-
-  test("handles large numbers", () => {
-    expect(add("1000,2000,3000")).toBe(6000);
   });
 
   test("ignores numbers greater than 1000", () => {
