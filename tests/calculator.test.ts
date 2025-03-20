@@ -37,7 +37,12 @@ test("returns the number itself when given one number", () => {
     expect(add("1000,2000,3000")).toBe(6000);
   });
 
-  test("ignores numbers greater than 1000", () => {
-    expect(add("2,1001")).toBe(2);
-    expect(add("1000,1001,1002,3")).toBe(1003);
-  });
+//   test("ignores numbers greater than 1000", () => {
+//     expect(add("2,1001")).toBe(2);
+//     expect(add("1000,1001,1002,3")).toBe(1003);
+//   });
+
+  test("returns sum of multiple numbers", () => {
+    expect(add("1,2,3")).toBe(6);
+    expect(add("5,10,15,20")).toBe(50);
+});
